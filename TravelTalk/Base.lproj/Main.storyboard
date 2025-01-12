@@ -50,15 +50,18 @@
                     <navigationItem key="navigationItem" id="I7z-Ic-ppM">
                         <nil key="title"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chattingListCollectionView" destination="2FL-c8-Tg4" id="Zig-Rc-Ntv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="929.85074626865662" y="3.432494279176201"/>
         </scene>
-        <!--Chatting View Controller-->
+        <!--Chatting Room View Controller-->
         <scene sceneID="q9b-oh-k4e">
             <objects>
-                <viewController id="MPN-vl-ql9" customClass="ChattingViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MPN-vl-ql9" customClass="ChattingRoomViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8JO-iv-wZ2">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
