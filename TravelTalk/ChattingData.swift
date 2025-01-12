@@ -23,7 +23,12 @@ enum User: String {
 //트래블톡 화면에서 사용할 데이터 구조체
 struct ChatRoom {
     let chatroomId: Int //채팅방 고유 ID
-    let chatroomImage: [String] //채팅방에 속한 유저 이미지
+    let chatroomUser: [User] // 채팅방에 속한 유저
+    var chatroomImage: [String] {
+        chatroomUser.map { user in
+            user.profileImage
+        }
+    } //채팅방에 속한 유저 이미지
     let chatroomName: String //채팅방 이름
     var chatList: [Chat] = [] //채팅 화면에서 사용할 데이터
 }
@@ -38,7 +43,7 @@ struct Chat {
 
 let mockChatList: [ChatRoom] = [
     ChatRoom(chatroomId: 1,
-             chatroomImage: [User.hue.profileImage, User.jack.profileImage, User.bran.profileImage, User.den.profileImage],
+             chatroomUser: [User.hue, User.jack, User.bran, User.den],
              chatroomName: "도봉 멘토방",
              chatList: [
                 Chat(user: .hue,
@@ -56,7 +61,7 @@ let mockChatList: [ChatRoom] = [
              ]
             ),
     ChatRoom(chatroomId: 2,
-             chatroomImage: [User.hue.profileImage],
+             chatroomUser: [User.hue],
              chatroomName: User.hue.rawValue,
              chatList: [
                 Chat(user: .hue,
@@ -76,7 +81,7 @@ let mockChatList: [ChatRoom] = [
                      message: "화이팅 ^^"),
              ]),
     ChatRoom(chatroomId: 3,
-             chatroomImage: [User.jack.profileImage],
+             chatroomUser: [User.jack],
              chatroomName: User.jack.rawValue,
              chatList: [
                 Chat(user: .jack,
@@ -102,7 +107,7 @@ let mockChatList: [ChatRoom] = [
                      message: "벌써 퇴근하세여?ㅎㅎㅎㅎㅎ"),
              ]),
     ChatRoom(chatroomId: 4,
-             chatroomImage: [User.bran.profileImage],
+             chatroomUser: [User.bran],
              chatroomName: User.bran.rawValue,
              chatList: [
                 Chat(user: .bran,
@@ -128,7 +133,7 @@ let mockChatList: [ChatRoom] = [
                      message: "개발자는 예외처리를 싫어합니다."),
              ]),
     ChatRoom(chatroomId: 5,
-             chatroomImage: [User.den.profileImage],
+             chatroomUser: [User.den],
              chatroomName: User.den.rawValue,
              chatList: [
                 Chat(user: .den,
@@ -163,7 +168,7 @@ let mockChatList: [ChatRoom] = [
                      message: "..."),
              ]),
     ChatRoom(chatroomId: 6,
-             chatroomImage: [User.other_friend.profileImage],
+             chatroomUser: [User.other_friend],
              chatroomName: User.other_friend.rawValue,
              chatList: [
                 Chat(user: .user,
@@ -184,7 +189,7 @@ let mockChatList: [ChatRoom] = [
              ]
             ),
     ChatRoom(chatroomId: 7,
-             chatroomImage: [User.simsim.profileImage],
+             chatroomUser: [User.simsim],
              chatroomName: User.simsim.rawValue,
              chatList: [
                 Chat(user: .user,
