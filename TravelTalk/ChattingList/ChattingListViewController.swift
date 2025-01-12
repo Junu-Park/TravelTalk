@@ -46,6 +46,7 @@ class ChattingListViewController: UIViewController {
     
     func configureNavigationItem() {
         navigationItem.title = "TRAVEL TALK"
+        navigationItem.backButtonTitle = ""
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = UIColor.white
         navigationItem.scrollEdgeAppearance = appearance
@@ -111,6 +112,8 @@ extension ChattingListViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function, indexPath)
+        let chattingRoomVC = storyboard?.instantiateViewController(withIdentifier: ChattingRoomViewController.id) as! ChattingRoomViewController
+        chattingRoomVC.chattingData = filteredChattingList[indexPath.item]
+        navigationController?.pushViewController(chattingRoomVC, animated: true)
     }
 }

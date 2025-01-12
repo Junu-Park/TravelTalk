@@ -61,14 +61,13 @@
         <!--Chatting Room View Controller-->
         <scene sceneID="q9b-oh-k4e">
             <objects>
-                <viewController id="MPN-vl-ql9" customClass="ChattingRoomViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChattingRoomViewController" id="MPN-vl-ql9" customClass="ChattingRoomViewController" customModule="TravelTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8JO-iv-wZ2">
                         <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nIk-NA-0SG">
-                                <rect key="frame" x="0.0" y="105" width="402" height="579"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nIk-NA-0SG">
+                                <rect key="frame" x="0.0" y="62" width="402" height="706"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53K-gg-YVu">
@@ -83,30 +82,29 @@
                                                     <constraint firstAttribute="width" secondItem="6VX-4F-G4x" secondAttribute="height" id="56i-2n-bES"/>
                                                     <constraint firstAttribute="height" constant="60" id="iPu-lx-Cqt"/>
                                                 </constraints>
+                                                <color key="tintColor" systemColor="systemGray6Color"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="paperplane" catalog="system"/>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bqD-Ka-dT0">
-                                                <rect key="frame" x="16" y="8" width="262" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="rV0-ZY-cbz"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="testfunc:" destination="MPN-vl-ql9" eventType="editingDidEndOnExit" id="6mi-5W-uWc"/>
+                                                    <action selector="enterChat:" destination="MPN-vl-ql9" eventType="touchUpInside" id="eM7-ch-RvO"/>
                                                 </connections>
-                                            </textField>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T1n-T4-wHk">
+                                                <rect key="frame" x="16" y="16" width="262" height="36"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
+                                            <constraint firstItem="T1n-T4-wHk" firstAttribute="top" secondItem="gbF-ox-c2Z" secondAttribute="top" constant="16" id="5rv-E9-laI"/>
                                             <constraint firstItem="6VX-4F-G4x" firstAttribute="top" secondItem="gbF-ox-c2Z" secondAttribute="top" id="6ft-yB-neL"/>
-                                            <constraint firstItem="bqD-Ka-dT0" firstAttribute="top" secondItem="gbF-ox-c2Z" secondAttribute="top" constant="8" id="Doc-rO-SO9"/>
-                                            <constraint firstAttribute="bottom" secondItem="bqD-Ka-dT0" secondAttribute="bottom" constant="8" id="IfW-LN-7xj"/>
+                                            <constraint firstAttribute="bottom" secondItem="T1n-T4-wHk" secondAttribute="bottom" constant="8" id="FVK-3J-sYe"/>
                                             <constraint firstAttribute="trailing" secondItem="6VX-4F-G4x" secondAttribute="trailing" id="Iqn-bc-Ddx"/>
-                                            <constraint firstItem="6VX-4F-G4x" firstAttribute="leading" secondItem="bqD-Ka-dT0" secondAttribute="trailing" id="KjM-pf-FvX"/>
                                             <constraint firstAttribute="bottom" secondItem="6VX-4F-G4x" secondAttribute="bottom" id="OTo-T1-oWM"/>
-                                            <constraint firstItem="bqD-Ka-dT0" firstAttribute="leading" secondItem="gbF-ox-c2Z" secondAttribute="leading" constant="16" id="e2C-rX-6ke"/>
+                                            <constraint firstItem="T1n-T4-wHk" firstAttribute="leading" secondItem="gbF-ox-c2Z" secondAttribute="leading" constant="16" id="S2H-77-XRR"/>
+                                            <constraint firstItem="6VX-4F-G4x" firstAttribute="leading" secondItem="T1n-T4-wHk" secondAttribute="trailing" id="Tfm-cY-chF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -119,16 +117,23 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EeD-B0-LjM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="53K-gg-YVu" firstAttribute="bottom" secondItem="EeD-B0-LjM" secondAttribute="bottom" priority="998" id="HYZ-dE-TZ3"/>
+                            <constraint firstItem="nIk-NA-0SG" firstAttribute="top" secondItem="EeD-B0-LjM" secondAttribute="top" id="IQ9-xb-KTL"/>
                             <constraint firstItem="53K-gg-YVu" firstAttribute="leading" secondItem="EeD-B0-LjM" secondAttribute="leading" id="LuB-PE-1nl"/>
                             <constraint firstItem="53K-gg-YVu" firstAttribute="trailing" secondItem="EeD-B0-LjM" secondAttribute="trailing" id="LyB-9M-tgh"/>
+                            <constraint firstItem="nIk-NA-0SG" firstAttribute="bottom" secondItem="53K-gg-YVu" secondAttribute="top" priority="998" id="S8A-NS-Qlc"/>
+                            <constraint firstItem="nIk-NA-0SG" firstAttribute="trailing" secondItem="EeD-B0-LjM" secondAttribute="trailing" id="fty-bX-bzO"/>
+                            <constraint firstItem="nIk-NA-0SG" firstAttribute="leading" secondItem="EeD-B0-LjM" secondAttribute="leading" id="ydD-ZQ-beh"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="testView" destination="53K-gg-YVu" id="PAY-qK-bsg"/>
-                        <outlet property="textFieldView" destination="gbF-ox-c2Z" id="YMn-fL-CCK"/>
+                        <outlet property="chattingEnterButton" destination="6VX-4F-G4x" id="n6m-BH-cJu"/>
+                        <outlet property="chattingEnterSuperView" destination="53K-gg-YVu" id="jxe-8m-1iF"/>
+                        <outlet property="chattingEnterTextView" destination="T1n-T4-wHk" id="uOW-hG-iCU"/>
+                        <outlet property="chattingEnterView" destination="gbF-ox-c2Z" id="y2Y-dU-hMr"/>
+                        <outlet property="tableView" destination="nIk-NA-0SG" id="NCu-iu-EYZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4O-vn-9MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,6 +161,9 @@
     </scenes>
     <resources>
         <image name="paperplane" catalog="system" width="128" height="119"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,4 +18,15 @@ extension String {
         
         return dateFormatter.string(from: convertedDate!)
     }
+    
+    func getHHmmDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        let convertedDate = dateFormatter.date(from: self)
+        
+        dateFormatter.dateFormat = "HH:mm"
+        
+        return dateFormatter.string(from: convertedDate!)
+    }
 }
